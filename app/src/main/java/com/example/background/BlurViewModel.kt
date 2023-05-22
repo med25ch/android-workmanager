@@ -95,6 +95,10 @@ class BlurViewModel(application: Application) : ViewModel() {
         return builder.build()
     }
 
+    internal fun cancelWork() {
+        workManager.cancelUniqueWork(IMAGE_MANIPULATION_WORK_NAME)
+    }
+
 
     private fun uriOrNull(uriString: String?): Uri? {
         return if (!uriString.isNullOrEmpty()) {
